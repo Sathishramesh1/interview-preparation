@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-
+import ConfettiExplosion from 'react-confetti-explosion';
 
 
 function useTicTacToe({n}) {
@@ -52,19 +52,24 @@ function useTicTacToe({n}) {
 
     const calculateWinner=(current)=>{
 
-        for(let i=0;i<patterns.length;i++){
-        const [a,b,c]=patterns[i];
+        // for(let i=0;i<patterns.length;i++){
+        // const [a,b,c]=patterns[i];
             
     
-        if(
-            current[a]
-            &&current[a]==current[c]
-            && current[a]==current[b]
+        // if(
+        //     current[a]
+        //     &&current[a]==current[c]
+        //     && current[a]==current[b]
         
-        ){
-            return current[a];
-        }
+        // ){
+        //     return current[a];
+        // }
 
+        // }
+        for (let pattern of patterns) {
+            if (pattern.every(index => current[index] && current[index] === current[pattern[0]])) {
+                return current[pattern[0]];
+            }
         }
 
         return null
@@ -86,7 +91,12 @@ function useTicTacToe({n}) {
      const winner=calculateWinner(board);
 
      if(winner){
-        return `${winner} wins the game`
+        return (
+            <>
+                <ConfettiExplosion />
+                <div>{`${winner} wins the game!`}</div>
+            </>
+        );
      }
 
 

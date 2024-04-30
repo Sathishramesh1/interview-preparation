@@ -16,7 +16,7 @@ function TicTacToe({n}) {
 
       </div>
       <div className='board' style={{ '--n': n }}>
-      {board.map((ele,i)=> <button className='cel' key={i} onClick={()=>handelClick(i)}
+      {board.map((ele,i)=> <button className={`cel ${ele ? ( ele=== 'X' ? 'x' : 'o') : ''}`} key={i} onClick={()=>handelClick(i)}
       disabled={ele!==null}
       >{ele}</button>)}
 

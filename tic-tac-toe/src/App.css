@@ -30,4 +30,15 @@
   border: 2px solid whitesmoke;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.x{
+  background-color: red;
+}
+.o{
+  background-color: yellow;
 }
